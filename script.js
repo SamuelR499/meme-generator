@@ -6,6 +6,7 @@ const memeText = document.getElementById('meme-text');
 const memeImage = document.getElementById('meme-image');
 const elementalBtns = document.getElementsByClassName('elementalBtns');
 const memeContainer = document.getElementById('meme-image-container');
+const memes = document.getElementsByClassName('preMade');
 
 //  functions
 
@@ -17,6 +18,14 @@ function borderBtns() {
     elementalBtns[i].addEventListener('click', (event) => {
       memeContainer.style.border = borders[i];
       console.log(event.target.style.border);
+    });
+  }
+}
+
+function memesChooser() {
+  for (let i = 0; i < memes.length; i += 1) {
+    memes[i].addEventListener('click', (event) => {
+      memeImage.src = event.target.src;
     });
   }
 }
@@ -38,3 +47,4 @@ imageInput.addEventListener('change', (event) => {
 });
 
 borderBtns();
+memesChooser();
